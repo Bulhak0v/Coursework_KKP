@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from architecture.models import SoftwareModule
 
 
@@ -27,13 +27,13 @@ class Defect(models.Model):
     )
 
     reporter = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='reported_defects'
     )
 
     assignee = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -76,7 +76,7 @@ class DefectHistory(models.Model):
     )
 
     changed_by = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
 
