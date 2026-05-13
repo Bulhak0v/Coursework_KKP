@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/auth/', include('accounts.urls')),
     path('api/architecture/', include('architecture.urls')),
     path('api/defects/', include('defects.urls')),
+    path('api/qa-ai/', include('qa_ai.urls')),
 ]
