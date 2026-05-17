@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="Deployment commit">
+    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="Update requirements.txt">
+      <change afterPath="$PROJECT_DIR$/runtime.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +115,7 @@
       <workItem from="1778510331625" duration="5755000" />
       <workItem from="1778683945822" duration="7539000" />
       <workItem from="1778871778123" duration="136000" />
-      <workItem from="1779038272433" duration="2169000" />
+      <workItem from="1779038272433" duration="2471000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -180,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779039276198</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update requirements.txt">
+      <option name="closed" value="true" />
+      <created>1779041381306</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1779041381306</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +204,7 @@
     <MESSAGE value="Add defects app bug life cycle logic" />
     <MESSAGE value="Backend complete" />
     <MESSAGE value="Deployment commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deployment commit" />
+    <MESSAGE value="Update requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update requirements.txt" />
   </component>
 </project>
