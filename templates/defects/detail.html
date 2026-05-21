@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Defect Details | DefectSys{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <a href="/defects/" class="text-secondary text-decoration-none mb-2 d-block" style="font-size: 14px;">
+            <i class="fa-solid fa-arrow-left me-1"></i> Back to list
+        </a>
+        <h2 style="font-weight: 300; display: inline-block;">
+            <span class="text-secondary">#<span id="defIdDisplay">--</span></span>
+            <span id="defTitleDisplay" class="ms-2">Loading...</span>
+        </h2>
+        <span id="defStatusBadge" class="ms-3 align-middle"></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="gh-card mb-4">
+            <div class="gh-card-header d-flex justify-content-between">
+                <span><i class="fa-solid fa-align-left me-2"></i> Details & Steps to Reproduce</span>
+                <span id="defReporterDisplay" class="text-secondary" style="font-size: 13px; font-weight: normal;"></span>
+            </div>
+            <div class="gh-card-body">
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <strong class="text-secondary d-block mb-1" style="font-size: 12px;">TARGET MODULE</strong>
+                        <span id="defModuleDisplay" class="badge" style="background-color: #21262d; border: 1px solid #30363d;">--</span>
+                    </div>
+                    <div class="col-md-4">
+                        <strong class="text-secondary d-block mb-1" style="font-size: 12px;">SEVERITY</strong>
+                        <span id="defSeverityDisplay">--</span>
+                    </div>
+                    <div class="col-md-4">
+                        <strong class="text-secondary d-block mb-1" style="font-size: 12px;">RISK SCORE</strong>
+                        <h4 id="defRiskDisplay" class="mb-0">--</h4>
+                    </div>
+                </div>
+
+                <strong class="text-secondary d-block mb-2" style="font-size: 12px;">STEPS TO REPRODUCE</strong>
+                <div id="defStepsDisplay" class="p-3" style="background-color: #010409; border: 1px solid #30363d; border-radius: 6px; font-family: monospace; white-space: pre-wrap; color: #c9d1d9;"></div>
+            </div>
+        </div>
+
+        <div class="gh-card" style="border-color: #8957e5;">
+            <div class="gh-card-header" style="background-color: rgba(137, 87, 229, 0.1); border-bottom-color: #8957e5; color: #c9d1d9;">
+                <i class="fa-solid fa-wand-magic-sparkles me-2" style="color: #8957e5;"></i> AI Test Case Generator
+            </div>
+            <div class="gh-card-body text-center py-4" id="aiGeneratorBlock">
+                <p class="text-secondary mb-3">Generate a regression test case based on the defect description using Gemini LLM.</p>
+                <button id="generateAiBtn" class="btn btn-gh-primary" style="background-color: #8957e5; border-color: #8957e5;">
+                    <i class="fa-solid fa-robot me-2"></i> Generate Test Case
+                </button>
+            </div>
+
+            <div class="gh-card-body" id="aiResultBlock" style="display: none;">
+                <h5 id="aiTitle" class="mb-3 text-white"></h5>
+
+                <strong class="text-secondary" style="font-size: 12px;">PRECONDITIONS</strong>
+                <p id="aiPreconditions" class="mb-3"></p>
+
+                <strong class="text-secondary" style="font-size: 12px;">STEPS TO TEST</strong>
+                <ol id="aiStepsList" class="mb-3" style="color: #c9d1d9;"></ol>
+
+                <strong class="text-secondary" style="font-size: 12px;">EXPECTED RESULT</strong>
+                <div id="aiExpected" class="p-2 mb-3" style="background-color: rgba(35, 134, 54, 0.1); border-left: 4px solid #238636; border-radius: 4px;"></div>
+
+                <strong class="text-secondary" style="font-size: 12px;">REGRESSION RECOMMENDATIONS (Impact Analysis)</strong>
+                <p id="aiRecommendations" class="text-warning"></p>
+
+                <div class="text-end mt-3">
+                    <small class="text-secondary" id="aiGeneratedBy"></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="gh-card mb-4">
+            <div class="gh-card-header">
+                Update Status
+            </div>
+            <div class="gh-card-body">
+                <form id="updateStatusForm">
+                    <select class="form-select form-select-sm mb-3" id="newStatusSelect">
+                        <option value="New">New</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Resolved">Resolved</option>
+                        <option value="Reopened">Reopened</option>
+                        <option value="Closed">Closed</option>
+                    </select>
+                    <button type="submit" class="btn btn-sm btn-gh-secondary w-100">Update Defect</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="gh-card">
+            <div class="gh-card-header d-flex justify-content-between">
+                <span>Lifecycle History</span>
+                <span id="reopenRateBadge" class="badge bg-secondary" title="Reopen Count">0</span>
+            </div>
+            <div class="gh-card-body p-0">
+                <ul class="list-group list-group-flush" id="historyList" style="background-color: transparent;">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/defect_detail.js' %}"></script>
+{% endblock %}

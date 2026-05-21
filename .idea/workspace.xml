@@ -4,9 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="Update requirements.txt 3">
+    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="Update requirements.txt 4">
+      <change afterPath="$PROJECT_DIR$/static/css/auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/architecture.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/defect_detail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/defects.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/graph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/architecture/graph.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/architecture/projects.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/auth/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/auth/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dashboard/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/defects/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/defects/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Coursework_KKP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Coursework_KKP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coursework_KKP/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Coursework_KKP/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coursework_KKP/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Coursework_KKP/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/architecture/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +40,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -49,25 +72,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Django Server.Coursework_KKP.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHELLCHECK.PATH": "C:\\Users\\Mykyta\\AppData\\Roaming\\JetBrains\\PyCharm2025.2\\plugins\\Shell Script\\shellcheck.exe",
-    "git-widget-placeholder": "dev",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.Coursework_KKP.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\Mykyta\\AppData\\Roaming\\JetBrains\\PyCharm2025.2\\plugins\\Shell Script\\shellcheck.exe&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mykyta\Documents\AAB\6th_semester\ККП\Coursework_KKP\templates\auth" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Coursework_KKP" type="Python.DjangoServer" factoryName="Django server">
       <module name="Coursework_KKP" />
@@ -115,7 +146,10 @@
       <workItem from="1778510331625" duration="5755000" />
       <workItem from="1778683945822" duration="7539000" />
       <workItem from="1778871778123" duration="136000" />
-      <workItem from="1779038272433" duration="3215000" />
+      <workItem from="1779038272433" duration="4694000" />
+      <workItem from="1779184048017" duration="8000" />
+      <workItem from="1779297645481" duration="6345000" />
+      <workItem from="1779357896884" duration="3729000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -213,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779042017238</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update requirements.txt 4">
+      <option name="closed" value="true" />
+      <created>1779042433150</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1779042433150</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +273,7 @@
     <MESSAGE value="Add runtime.txt" />
     <MESSAGE value="Update requirements.txt" />
     <MESSAGE value="Update requirements.txt 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update requirements.txt 3" />
+    <MESSAGE value="Update requirements.txt 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update requirements.txt 4" />
   </component>
 </project>
