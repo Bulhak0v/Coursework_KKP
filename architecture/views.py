@@ -2,10 +2,15 @@ from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.models import Count, Q, Avg, F
+from django.http import HttpResponse
+from django.contrib.auth import get_user_model
 from defects.models import Defect
-from .models import Project, SoftwareModule, ModuleDependency
-from .serializers import ProjectSerializer, SoftwareModuleSerializer, ModuleDependencySerializer
+from .models import Project, SoftwareModule, ModuleDependency, Task
+from .serializers import ProjectSerializer, SoftwareModuleSerializer, ModuleDependencySerializer, TaskSerializer
 from .services import get_regression_scope, get_graph_data_for_visualization
+import csv
+
+User = get_user_model()
 
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
@@ -13,10 +18,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+
         if user.role == 'PM':
             return Project.objects.filter(owner=user)
-
-        return Project.objects.all()
+        return Project.objects.filter(assigned_members=user)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -74,6 +79,81 @@ class ProjectViewSet(viewsets.ModelViewSet):
             "modules_statistics": modules_stats
         })
 
+    @action(detail=True, methods=['get'])
+    def export_csv(self, request, pk=None):
+        user = request.user
+        if user.role != 'PM':
+            return Response({"detail": "Only Project Managers can export reports."}, status=status.HTTP_403_FORBIDDEN)
+
+        project = self.get_object()
+
+        modules = SoftwareModule.objects.filter(project=project).annotate(
+            open_defects=Count('defects', filter=~Q(defects__status__in=['Resolved', 'Closed'])),
+            total_defects=Count('defects')
+        )
+
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = f'attachment; filename="{project.name.replace(" ", "_")}_Report.csv"'
+
+        writer = csv.writer(response)
+        writer.writerow(['Module ID', 'Module Name', 'Stability Index (%)', 'Open Defects', 'Total Defects History'])
+
+        for mod in modules:
+            writer.writerow([
+                mod.id,
+                mod.name,
+                round(mod.stability_index, 2),
+                mod.open_defects,
+                mod.total_defects
+            ])
+
+        return response
+
+    @action(detail=True, methods=['get', 'post', 'delete'])
+    def members(self, request, pk=None):
+        project = self.get_object()
+
+        print(f"--- API CALL --- Project: {project.id}, User: {request.user.username}, Method: {request.method}")
+
+        if request.user != project.owner and request.method in ['POST', 'DELETE']:
+            print("Access denied: Not the owner.")
+            return Response({"detail": "Access denied."}, status=status.HTTP_403_FORBIDDEN)
+
+        if request.method == 'GET':
+            members = project.assigned_members.all()
+            result = [
+                {"id": m.id, "username": m.username, "role": m.role, "first_name": m.first_name,
+                 "last_name": m.last_name}
+                for m in members
+            ]
+            return Response(result)
+
+        elif request.method == 'POST':
+            user_id = request.data.get('user_id')
+            print(f"Trying to add User ID: {user_id}")
+
+            if not user_id:
+                return Response({"detail": "User ID is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+            try:
+                user = User.objects.get(id=user_id)
+                project.assigned_members.add(user)
+                print("SUCCESS: User added to DB!")
+                return Response({"status": "User added to team"}, status=status.HTTP_201_CREATED)
+            except Exception as e:
+                print(f"CRITICAL ERROR: {str(e)}")
+                return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        elif request.method == 'DELETE':
+            user_id = request.data.get('user_id')
+            try:
+                user = User.objects.get(id=user_id)
+                project.assigned_members.remove(user)
+                print("SUCCESS: User removed from DB!")
+                return Response({"status": "User removed from team"}, status=status.HTTP_200_OK)
+            except Exception as e:
+                return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 class SoftwareModuleViewSet(viewsets.ModelViewSet):
     queryset = SoftwareModule.objects.all()
@@ -114,3 +194,23 @@ class ModuleDependencyViewSet(viewsets.ModelViewSet):
     queryset = ModuleDependency.objects.all()
     serializer_class = ModuleDependencySerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class TaskViewSet(viewsets.ModelViewSet):
+    serializer_class = TaskSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        project_id = self.request.query_params.get('project')
+        if project_id:
+            return Task.objects.filter(project_id=project_id).order_by('-created_at')
+
+        user = self.request.user
+        if user.role == 'PM':
+            return Task.objects.filter(project__owner=user)
+
+        return Task.objects.filter(project__assigned_members=user)
+
+    def perform_create(self, serializer):
+        if self.request.user.role != 'PM':
+            raise PermissionError("Only PM can create tasks.")
+        serializer.save()

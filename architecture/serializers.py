@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project, SoftwareModule, ModuleDependency
+from .models import Project, SoftwareModule, ModuleDependency, Task
 
 class ProjectSerializer(serializers.ModelSerializer):
     owner_username = serializers.ReadOnlyField(source='owner.username')
@@ -23,4 +23,12 @@ class ModuleDependencySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ModuleDependency
+        fields = '__all__'
+
+class TaskSerializer(serializers.ModelSerializer):
+    assignee_username = serializers.ReadOnlyField(source='assignee.username')
+    assignee_role = serializers.ReadOnlyField(source='assignee.role')
+
+    class Meta:
+        model = Task
         fields = '__all__'

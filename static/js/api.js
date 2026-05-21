@@ -31,7 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             if (data) {
                 localStorage.setItem('user_role', data.role);
+                localStorage.setItem('username', data.username);
                 userInfoBlock.innerHTML = `<i class="fa-regular fa-circle-user me-1"></i> ${data.username} <span class="badge bg-secondary ms-1">${data.role}</span>`;
+
+                document.getElementById('profUsername').value = data.username;
+                document.getElementById('profRole').value = data.role;
+                document.getElementById('profEmail').value = data.email;
+                document.getElementById('profFirstName').value = data.first_name || '';
+                document.getElementById('profLastName').value = data.last_name || '';
+                document.getElementById('profBio').value = data.bio || '';
             }
         })
         .catch(err => console.error("Error fetching profile:", err));
@@ -80,4 +88,27 @@ document.addEventListener('DOMContentLoaded', () => {
             projectSwitcher.innerHTML = '<option value="">Error loading</option>';
         });
     }
+
+    document.getElementById('userProfileForm')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const payload = {
+            first_name: document.getElementById('profFirstName').value,
+            last_name: document.getElementById('profLastName').value,
+            bio: document.getElementById('profBio').value
+        };
+
+        try {
+            const res = await fetch('/api/auth/profile/', {
+                method: 'PATCH',
+                headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (res.ok) {
+                bootstrap.Modal.getInstance(document.getElementById('userProfileModal')).hide();
+                Swal.fire({ icon: 'success', title: 'Profile Updated', toast: true, position: 'top-end', showConfirmButton: false, timer: 1500, background: '#161b22', color: '#c9d1d9'});
+            }
+        } catch (error) { console.error(error); }
+    });
 });

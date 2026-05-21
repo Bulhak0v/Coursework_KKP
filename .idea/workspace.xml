@@ -4,29 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="Update requirements.txt 4">
-      <change afterPath="$PROJECT_DIR$/static/css/auth.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/architecture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/defect_detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/defects.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/graph.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/architecture/graph.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/architecture/projects.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/auth/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/auth/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/defects/detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/defects/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Coursework_KKP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Coursework_KKP.iml" afterDir="false" />
+    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="Front-end initial commit">
+      <change afterPath="$PROJECT_DIR$/static/js/board.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/architecture/board.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_gemini.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coursework_KKP/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Coursework_KKP/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coursework_KKP/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Coursework_KKP/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/architecture/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/architecture/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/architecture/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/architecture/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/architecture/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/defects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/defects/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qa_ai/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/qa_ai/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/architecture.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/architecture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/defect_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/defect_detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/defects.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/defects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/architecture/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/architecture/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/defects/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/defects/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +41,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -134,6 +136,9 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="" />
@@ -149,7 +154,7 @@
       <workItem from="1779038272433" duration="4694000" />
       <workItem from="1779184048017" duration="8000" />
       <workItem from="1779297645481" duration="6345000" />
-      <workItem from="1779357896884" duration="3729000" />
+      <workItem from="1779357896884" duration="14858000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -255,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779042433150</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Front-end initial commit">
+      <option name="closed" value="true" />
+      <created>1779361782782</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1779361782782</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +287,7 @@
     <MESSAGE value="Update requirements.txt" />
     <MESSAGE value="Update requirements.txt 3" />
     <MESSAGE value="Update requirements.txt 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update requirements.txt 4" />
+    <MESSAGE value="Front-end initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Front-end initial commit" />
   </component>
 </project>

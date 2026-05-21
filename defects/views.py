@@ -19,6 +19,15 @@ class DefectViewSet(viewsets.ModelViewSet):
     ordering_fields = ['calculated_risk', 'created_at']
     ordering = ['-created_at']
 
+    def get_queryset(self):
+        qs = Defect.objects.all().order_by('-created_at')
+        project_id = self.request.query_params.get('project')
+
+        if project_id:
+            qs = qs.filter(module__project_id=project_id)
+
+        return qs
+
     def perform_create(self, serializer):
         defect = serializer.save(reporter=self.request.user)
         defect.calculated_risk = calculate_defect_risk(defect)

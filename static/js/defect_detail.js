@@ -123,6 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const userRole = localStorage.getItem('user_role');
+    const aiGeneratorCard = document.getElementById('aiGeneratorCard');
+
+    if (userRole === 'DEV') {
+        if (aiGeneratorCard) aiGeneratorCard.style.display = 'none';
+    }
+
     function renderAiResult(data) {
         document.getElementById('aiGeneratorBlock').style.display = 'none';
         document.getElementById('aiResultBlock').style.display = 'block';

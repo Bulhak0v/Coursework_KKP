@@ -31,6 +31,7 @@ urlpatterns = [
 
     path('architecture/', TemplateView.as_view(template_name="architecture/projects.html"), name='frontend_architecture'),
     path('architecture/graph/', TemplateView.as_view(template_name="architecture/graph.html"), name='frontend_graph'),
+    path('board/', TemplateView.as_view(template_name="architecture/board.html"), name='frontend_board'),
 
     path('defects/', TemplateView.as_view(template_name="defects/list.html"), name='frontend_defects'),
     path('defects/<int:id>/', TemplateView.as_view(template_name="defects/detail.html"), name='frontend_defect_detail'),

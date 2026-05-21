@@ -1,3 +1,4 @@
+<!-- templates/dashboard/index.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -10,6 +11,17 @@
         Project Analytics
         <span id="projectNameDisplay" class="badge bg-secondary ms-2 fs-6 align-middle" style="display:none;"></span>
     </h2>
+
+    <!-- БЛОК КНОПОК -->
+    <div>
+        <button id="manageTeamBtn" class="btn btn-sm btn-gh-secondary me-2" data-bs-toggle="modal" data-bs-target="#teamModal" style="display: none;">
+            <i class="fa-solid fa-users me-1 text-info"></i> Manage Team
+        </button>
+
+        <button id="exportCsvBtn" class="btn btn-sm btn-gh-secondary" style="display: none;">
+            <i class="fa-solid fa-file-csv me-1 text-success"></i> Export Report
+        </button>
+    </div>
 </div>
 
 <div id="noDataAlert" class="alert alert-dark" style="display: none; background-color: #161b22; border-color: #30363d; color: #c9d1d9;">
@@ -56,6 +68,29 @@
             </div>
             <div class="gh-card-body d-flex justify-content-center">
                 <canvas id="doughnutChart" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="teamModal" tabindex="-1" data-bs-theme="dark">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #161b22; border: 1px solid #30363d;">
+            <div class="modal-header" style="border-bottom: 1px solid #30363d;">
+                <h5 class="modal-title"><i class="fa-solid fa-users me-2"></i> Project Team</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addMemberForm" class="d-flex mb-4">
+                    <select class="form-select form-select-sm me-2" id="availableUsersSelect" required>
+                        <option value="">Loading engineers...</option>
+                    </select>
+                    <button type="submit" class="btn btn-sm btn-gh-primary">Add</button>
+                </form>
+
+                <h6 class="text-secondary mb-2" style="font-size: 13px;">CURRENT MEMBERS</h6>
+                <ul class="list-group list-group-flush" id="projectMembersList" style="background-color: transparent;">
+                </ul>
             </div>
         </div>
     </div>

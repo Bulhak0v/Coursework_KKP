@@ -1,8 +1,20 @@
 document.addEventListener('ProjectValidated', async (e) => {
     const token = localStorage.getItem('access_token');
+    const userRole = localStorage.getItem('user_role');
     if (!token) return;
 
     const PROJECT_ID = e.detail;
+    if (userRole !== 'PM') {
+        const addModBtn = document.querySelector('[data-bs-target="#addModuleModal"]');
+        if (addModBtn) addModBtn.style.display = 'none';
+
+        const depFormCard = document.getElementById('dependencyForm')?.closest('.gh-card');
+        if (depFormCard) depFormCard.style.display = 'none';
+
+        const style = document.createElement('style');
+        style.innerHTML = '.btn-outline-danger, .text-danger { display: none !important; }';
+        document.head.appendChild(style);
+    }
 
     if (!PROJECT_ID) {
         document.getElementById('initProjectSection').style.display = 'block';
@@ -75,6 +87,9 @@ document.addEventListener('ProjectValidated', async (e) => {
                             </span>
                         </td>
                         <td class="text-end pe-3">
+                            <button class="btn btn-sm btn-gh-secondary border-0 me-1" onclick="openModuleDetails(${mod.id})">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
                             <button class="btn btn-sm btn-outline-danger border-0" onclick="deleteModule(${mod.id})">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
@@ -191,6 +206,56 @@ document.addEventListener('ProjectValidated', async (e) => {
         });
         if (res.ok) loadDependencies();
     };
+
+    window.openModuleDetails = (id) => {
+        const mod = modulesList.find(m => m.id === id);
+        if (!mod) return;
+
+        document.getElementById('editModId').value = mod.id;
+        document.getElementById('editModName').value = mod.name;
+        document.getElementById('editModDesc').value = mod.description;
+        document.getElementById('editModProject').textContent = mod.project_name || "Current";
+
+        const stabElem = document.getElementById('editModStability');
+        stabElem.textContent = `${mod.stability_index}%`;
+        stabElem.style.color = mod.stability_index > 80 ? '#238636' : '#d29922';
+
+        const userRole = localStorage.getItem('user_role');
+        const nameInput = document.getElementById('editModName');
+        const descInput = document.getElementById('editModDesc');
+        const footer = document.getElementById('editModuleFooter');
+
+        if (userRole === 'PM') {
+            nameInput.removeAttribute('readonly');
+            descInput.removeAttribute('readonly');
+            footer.style.display = 'block'; // Показуємо кнопку Save
+        } else {
+            nameInput.setAttribute('readonly', 'true');
+            descInput.setAttribute('readonly', 'true');
+            footer.style.display = 'none'; // Ховаємо кнопку Save
+        }
+
+        new bootstrap.Modal(document.getElementById('editModuleModal')).show();
+    };
+
+    document.getElementById('editModuleForm')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('editModId').value;
+        const name = document.getElementById('editModName').value;
+        const desc = document.getElementById('editModDesc').value;
+
+        const res = await fetch(`/api/architecture/modules/${id}/`, {
+            method: 'PATCH',
+            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, description: desc })
+        });
+
+        if (res.ok) {
+            bootstrap.Modal.getInstance(document.getElementById('editModuleModal')).hide();
+            Swal.fire({ icon: 'success', title: 'Updated', toast: true, position: 'top-end', showConfirmButton: false, timer: 1500, background: '#161b22', color: '#c9d1d9'});
+            loadModules();
+        }
+    });
 
     initPage();
 });

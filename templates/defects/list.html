@@ -8,7 +8,7 @@
     <h2 style="font-weight: 300;">
         <i class="fa-solid fa-list-check me-2 text-secondary"></i> Defect Tracking
     </h2>
-    <button class="btn btn-gh-primary" data-bs-toggle="modal" data-bs-target="#createDefectModal">
+    <button id="reportDefectBtn" class="btn btn-gh-primary" data-bs-target="#createDefectModal" data-bs-toggle="modal">
         <i class="fa-solid fa-plus me-1"></i> Report Defect
     </button>
 </div>
@@ -124,5 +124,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/defects.js' %}"></script>
+<script src="{% static 'js/defects.js' %}?v=2"></script>
 {% endblock %}
