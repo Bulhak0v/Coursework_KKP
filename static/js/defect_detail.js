@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btn.innerHTML = `
             <i class="fa-solid fa-spinner fa-spin me-2"></i>
-            Thinking (Connecting to Gemini LLM)...
+            Processing LLM Request...
         `;
 
         btn.disabled = true;
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 Swal.fire({
                     icon: 'success',
-                    title: 'Magic Done!',
+                    title: 'Generation Complete!',
                     text: 'Test case generated successfully.',
                     background: '#161b22',
                     color: '#c9d1d9'

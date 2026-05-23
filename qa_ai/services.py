@@ -7,17 +7,11 @@ from .models import AITestCase
 
 
 def generate_and_save_test_case(defect_id: int, user) -> AITestCase:
-    """
-    Звертається до Gemini API для генерації тест-кейсу
-    на основі дефекту і зберігає результат у БД.
-    """
-    # 1. ПЕРЕВІРКА КЛЮЧА
     api_key = getattr(settings, 'GEMINI_API_KEY', None)
     if not api_key:
         print("CRITICAL ERROR: GEMINI_API_KEY is not set in settings.py or .env file!")
         raise ValueError("API Key for AI is missing.")
 
-    # Налаштовуємо клієнт
     genai.configure(api_key=api_key)
 
     try:
@@ -25,7 +19,6 @@ def generate_and_save_test_case(defect_id: int, user) -> AITestCase:
     except Defect.DoesNotExist:
         raise ValueError("Defect not found.")
 
-    # Перевіряємо, чи вже згенеровано
     if hasattr(defect, 'ai_test_case'):
         return defect.ai_test_case
 
@@ -53,14 +46,12 @@ def generate_and_save_test_case(defect_id: int, user) -> AITestCase:
         model = genai.GenerativeModel('gemini-2.5-flash')
         response = model.generate_content(prompt)
 
-        # Виводимо те, що повернув Gemini, у консоль сервера
         print("--- Gemini Raw Response ---")
         print(response.text)
         print("---------------------------")
 
         raw_text = response.text.strip()
 
-        # Очищуємо від маркдауну, якщо він все ж таки є
         if raw_text.startswith("```json"):
             raw_text = raw_text[7:]
         elif raw_text.startswith("```"):
@@ -71,13 +62,10 @@ def generate_and_save_test_case(defect_id: int, user) -> AITestCase:
 
         raw_text = raw_text.strip()
 
-        # Парсимо JSON
         json_data = json.loads(raw_text)
 
     except Exception as e:
-        # Якщо Gemini повернув щось дивне або впав
         print(f"--- ERROR IN GEMINI PROCESSING: {str(e)} ---")
-        # Створюємо резервний JSON, щоб не крашити фронтенд
         json_data = {
             "test_case_title": "AI Generation Failed",
             "preconditions": "N/A",
@@ -86,7 +74,6 @@ def generate_and_save_test_case(defect_id: int, user) -> AITestCase:
             "regression_recommendations": "Check backend server logs."
         }
 
-    # Зберігаємо результат
     test_case = AITestCase.objects.create(
         defect=defect,
         generated_by=user,

@@ -35,17 +35,18 @@ class ProjectViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['get'])
     def analytics(self, request, pk=None):
         project = self.get_object()
+
         modules = SoftwareModule.objects.filter(project=project).annotate(
             open_defects=Count('defects', filter=~Q(defects__status__in=['Resolved', 'Closed'])),
-            critical_defects=Count('defects',
-                                   filter=Q(defects__severity='Critical', defects__status__in=['New', 'In Progress'])),
-            high_defects=Count('defects',
-                               filter=Q(defects__severity='High', defects__status__in=['New', 'In Progress']))
+            avg_risk=Avg('defects__calculated_risk', filter=~Q(defects__status__in=['Resolved', 'Closed']))
         )
 
         modules_stats = []
         for mod in modules:
-            stability = max(0.0, 100.0 - (mod.critical_defects * 20.0) - (mod.high_defects * 10.0))
+            if mod.open_defects > 0 and mod.avg_risk is not None:
+                stability = max(0.0, 100.0 - float(mod.avg_risk))
+            else:
+                stability = 100.0
 
             if mod.stability_index != stability:
                 mod.stability_index = stability
@@ -55,7 +56,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
                 "module_id": mod.id,
                 "module_name": mod.name,
                 "open_defects": mod.open_defects,
-                "stability_index": stability
+                "stability_index": round(stability, 2)
             })
 
         resolved_defects = Defect.objects.filter(module__project=project, resolved_at__isnull=False)
