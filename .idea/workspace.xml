@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="update analytics module">
+    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="Update requirements.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coursework_KKP/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Coursework_KKP/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/board.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/architecture/board.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/architecture/board.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +138,7 @@
       <workItem from="1779445667887" duration="958000" />
       <workItem from="1779563459863" duration="3099000" />
       <workItem from="1779649117141" duration="6308000" />
-      <workItem from="1779723486710" duration="299000" />
+      <workItem from="1779723486710" duration="1289000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -266,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779564560175</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update requirements.txt">
+      <option name="closed" value="true" />
+      <created>1779723810281</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1779723810281</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,12 +292,12 @@
     <MESSAGE value="Backend complete" />
     <MESSAGE value="Deployment commit" />
     <MESSAGE value="Add runtime.txt" />
-    <MESSAGE value="Update requirements.txt" />
     <MESSAGE value="Update requirements.txt 3" />
     <MESSAGE value="Update requirements.txt 4" />
     <MESSAGE value="Front-end initial commit" />
     <MESSAGE value="Front-end almost done (if is not yet)" />
     <MESSAGE value="update analytics module" />
-    <option name="LAST_COMMIT_MESSAGE" value="update analytics module" />
+    <MESSAGE value="Update requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update requirements.txt" />
   </component>
 </project>

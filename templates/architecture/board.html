@@ -139,8 +139,29 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="viewTaskModal" tabindex="-1" data-bs-theme="dark">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #161b22; border: 1px solid #30363d;">
+            <div class="modal-header" style="border-bottom: 1px solid #30363d;">
+                <h5 class="modal-title text-white" id="viewTaskTitle">Task Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between mb-3">
+                    <span id="viewTaskStatus" class="badge bg-secondary">STATUS</span>
+                    <span id="viewTaskMeta" class="text-secondary" style="font-size: 13px;"></span>
+                </div>
+
+                <h6 class="text-secondary mb-2" style="font-size: 12px; font-weight: 600;">DESCRIPTION</h6>
+                <div id="viewTaskDesc" class="p-3" style="background-color: #010409; border: 1px solid #30363d; border-radius: 6px; white-space: pre-wrap; color: #c9d1d9; min-height: 80px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/board.js' %}?v=4"></script>
+<script src="{% static 'js/board.js' %}?v=5"></script>
 {% endblock %}
