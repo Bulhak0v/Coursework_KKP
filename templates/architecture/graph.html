@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Impact Graph | DefectSys{% endblock %}
+
+{% block extra_css %}
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<style>
+    #network-container {
+        width: 100%;
+        height: 600px;
+        background-color: #0d1117;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+    }
+
+    .impact-list-item {
+        background-color: transparent;
+        border-color: #30363d;
+        color: #c9d1d9;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 style="font-weight: 300;">
+        <i class="fa-solid fa-network-wired me-2 text-secondary"></i> Architecture Impact Graph
+    </h2>
+    <a href="/architecture/" class="btn btn-gh-secondary btn-sm">
+        <i class="fa-solid fa-arrow-left me-1"></i> Back to Modules
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="gh-card mb-3">
+            <div class="gh-card-header text-warning">
+                <i class="fa-solid fa-triangle-exclamation me-1"></i> Impact Analysis
+            </div>
+            <div class="gh-card-body">
+                <p class="text-secondary" style="font-size: 13px;">
+                    Select a core module to see how a critical defect in it will cascade through the system.
+                </p>
+                <form id="impactForm">
+                    <div class="mb-3">
+                        <select id="moduleSelect" class="form-select form-select-sm" required>
+                            <option value="">Loading modules...</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-gh-primary w-100">
+                        <i class="fa-solid fa-magnifying-glass me-1"></i> Calculate Scope
+                    </button>
+                    <button type="button" id="resetGraphBtn" class="btn btn-sm btn-gh-secondary w-100 mt-2">
+                        Reset Graph
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="gh-card" id="resultsCard" style="display: none;">
+            <div class="gh-card-header text-danger">
+                Regression Scope
+                <span id="impactCount" class="badge bg-danger float-end">0</span>
+            </div>
+            <div class="gh-card-body p-0">
+                <ul class="list-group list-group-flush" id="impactedModulesList">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div id="network-container"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<script src="{% static 'js/graph.js' %}?v=2"></script>
+{% endblock %}

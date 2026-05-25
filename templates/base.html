@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DefectSys{% endblock %}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg gh-navbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <i class="fa-solid fa-bug me-2" style="color: #58a6ff;"></i>
+            DefectSys
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><i class="fa-solid fa-chart-line me-1"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/architecture/"><i class="fa-solid fa-diagram-project me-1"></i>
+                        Architecture</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/defects/"><i class="fa-solid fa-list-check me-1"></i> Defects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/board/"><i class="fa-solid fa-kanban me-1"></i> Task Board</a>
+                </li>
+            </ul>
+
+            <div class="d-flex align-items-center">
+                <div class="me-4 d-flex align-items-center">
+                    <i class="fa-solid fa-layer-group text-secondary me-2"></i>
+                    <select id="globalProjectSwitcher" class="form-select form-select-sm"
+                            style="background-color: #0d1117; color: #c9d1d9; border-color: #30363d; width: 180px;">
+                        <option value="">Loading projects...</option>
+                    </select>
+                </div>
+
+                <button id="currentUserInfo" class="btn btn-link text-decoration-none me-3 p-0" data-bs-toggle="modal" data-bs-target="#userProfileModal" style="font-size: 14px; font-weight: 500; color: #c9d1d9;">
+                </button>
+
+                <button id="logoutBtn" class="btn btn-sm btn-gh-secondary">
+                    <i class="fa-solid fa-sign-out-alt me-1"></i> Sign out
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="container mt-4">
+    {% block content %}
+
+    {% endblock %}
+<div class="modal fade" id="userProfileModal" tabindex="-1" data-bs-theme="dark">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #161b22; border: 1px solid #30363d;">
+            <div class="modal-header" style="border-bottom: 1px solid #30363d;">
+                <h5 class="modal-title"><i class="fa-regular fa-id-badge me-2 text-primary"></i> My Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="userProfileForm">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label text-secondary" style="font-size:12px;">USERNAME</label>
+                            <input type="text" class="form-control form-control-sm" id="profUsername" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label text-secondary" style="font-size:12px;">SYSTEM ROLE</label>
+                            <input type="text" class="form-control form-control-sm" id="profRole" readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-secondary" style="font-size:12px;">EMAIL</label>
+                        <input type="email" class="form-control form-control-sm" id="profEmail" readonly>
+                    </div>
+                    <hr style="border-color: #30363d;">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label text-secondary" style="font-size:12px;">FIRST NAME</label>
+                            <input type="text" class="form-control form-control-sm" id="profFirstName">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label text-secondary" style="font-size:12px;">LAST NAME</label>
+                            <input type="text" class="form-control form-control-sm" id="profLastName">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-secondary" style="font-size:12px;">BIO / ABOUT</label>
+                        <textarea class="form-control form-control-sm" id="profBio" rows="3" placeholder="Tell us about your skills..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top: 1px solid #30363d;">
+                    <button type="submit" class="btn btn-sm btn-gh-primary w-100">Save Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer class="gh-footer">
+    <div class="container d-flex justify-content-between align-items-center">
+        <span>&copy; 2026 DefectSys Project. All rights reserved.</span>
+        <span>
+                <i class="fa-solid fa-microchip me-1"></i> Architecture & Risk Analysis Module
+            </span>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="{% static 'js/api.js' %}?v=3"></script>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

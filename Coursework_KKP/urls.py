@@ -15,8 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/auth/', include('accounts.urls')),
+    path('api/architecture/', include('architecture.urls')),
+    path('api/defects/', include('defects.urls')),
+    path('api/qa-ai/', include('qa_ai.urls')),
+
+    path('login/', TemplateView.as_view(template_name="auth/login.html"), name='frontend_login'),
+    path('register/', TemplateView.as_view(template_name="auth/register.html"), name='frontend_register'),
+    path('', TemplateView.as_view(template_name="dashboard/index.html"), name='frontend_dashboard'),
+
+    path('architecture/', TemplateView.as_view(template_name="architecture/projects.html"), name='frontend_architecture'),
+    path('architecture/graph/', TemplateView.as_view(template_name="architecture/graph.html"), name='frontend_graph'),
+    path('board/', TemplateView.as_view(template_name="architecture/board.html"), name='frontend_board'),
+
+    path('defects/', TemplateView.as_view(template_name="defects/list.html"), name='frontend_defects'),
+    path('defects/<int:id>/', TemplateView.as_view(template_name="defects/detail.html"), name='frontend_defect_detail'),
 ]

@@ -1,0 +1,91 @@
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.gh-navbar {
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 12px 0;
+}
+
+.gh-navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.gh-navbar .nav-link {
+    color: #c9d1d9;
+    font-weight: 500;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    transition: background-color 0.2s;
+}
+
+.gh-navbar .nav-link:hover, .gh-navbar .nav-link.active {
+    color: #ffffff;
+    background-color: #21262d;
+}
+
+.gh-card {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.gh-card-header {
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 16px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    font-weight: 600;
+}
+
+.gh-card-body {
+    padding: 16px;
+}
+
+.btn-gh-primary {
+    background-color: #238636;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    color: #ffffff;
+    font-weight: 500;
+}
+.btn-gh-primary:hover {
+    background-color: #2ea043;
+    color: #ffffff;
+}
+
+.btn-gh-secondary {
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    font-weight: 500;
+}
+.btn-gh-secondary:hover {
+    background-color: #30363d;
+    border-color: #8b949e;
+    color: #ffffff;
+}
+
+main {
+    flex: 1;
+}
+
+.gh-footer {
+    border-top: 1px solid #30363d;
+    padding: 30px 0;
+    margin-top: 40px;
+    font-size: 12px;
+    color: #8b949e;
+    text-align: center;
+}

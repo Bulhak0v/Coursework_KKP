@@ -1,27 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="" />
+    <list default="true" id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="Update static files + board.js" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Bulhak0v&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Bulhak0v/Coursework_KKP.git&quot;,
+    &quot;accountId&quot;: &quot;c53e591b-77ae-4029-9c36-1fa6f3ad9e94&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3DUJKoqlRf4C8uNJVFdxdLFPAwP" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.Coursework_KKP.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\Mykyta\\AppData\\Roaming\\JetBrains\\PyCharm2025.2\\plugins\\Shell Script\\shellcheck.exe&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mykyta\Documents\AAB\6th_semester\ККП\Coursework_KKP\templates\auth" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Coursework_KKP" type="Python.DjangoServer" factoryName="Django server">
       <module name="Coursework_KKP" />
@@ -30,6 +84,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Coursework_KKP.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -56,6 +111,9 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="5336f5b1-71b5-4382-aeef-87a25d4bf89d" name="Changes" comment="" />
@@ -63,8 +121,187 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778330656277</updated>
-      <workItem from="1778330657357" duration="2000" />
+      <workItem from="1778330657357" duration="156000" />
+      <workItem from="1778508730599" duration="1579000" />
+      <workItem from="1778510331625" duration="5755000" />
+      <workItem from="1778683945822" duration="7539000" />
+      <workItem from="1778871778123" duration="136000" />
+      <workItem from="1779038272433" duration="4694000" />
+      <workItem from="1779184048017" duration="8000" />
+      <workItem from="1779297645481" duration="6345000" />
+      <workItem from="1779357896884" duration="15248000" />
+      <workItem from="1779445667887" duration="958000" />
+      <workItem from="1779563459863" duration="3099000" />
+      <workItem from="1779649117141" duration="6308000" />
+      <workItem from="1779723486710" duration="1374000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1778330713592</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778330713592</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add .gitignore">
+      <option name="closed" value="true" />
+      <created>1778510674009</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778510674009</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add projects structure + DB Models">
+      <option name="closed" value="true" />
+      <created>1778510745750</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778510745750</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add auth logic + add User model + edit another models to work with new User">
+      <option name="closed" value="true" />
+      <created>1778513431401</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1778513431401</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add architecture app CRUD">
+      <option name="closed" value="true" />
+      <created>1778528544653</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1778528544653</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add defects app bug life cycle logic">
+      <option name="closed" value="true" />
+      <created>1778529363539</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1778529363539</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Backend complete">
+      <option name="closed" value="true" />
+      <created>1778687422757</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1778687422757</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Deployment commit">
+      <option name="closed" value="true" />
+      <created>1779039276198</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1779039276198</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update requirements.txt">
+      <option name="closed" value="true" />
+      <created>1779041381306</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1779041381306</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add runtime.txt">
+      <option name="closed" value="true" />
+      <created>1779041688176</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1779041688176</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update requirements.txt">
+      <option name="closed" value="true" />
+      <created>1779041808594</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1779041808594</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update requirements.txt 3">
+      <option name="closed" value="true" />
+      <created>1779042017238</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1779042017238</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update requirements.txt 4">
+      <option name="closed" value="true" />
+      <created>1779042433150</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1779042433150</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Front-end initial commit">
+      <option name="closed" value="true" />
+      <created>1779361782782</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1779361782782</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Front-end almost done (if is not yet)">
+      <option name="closed" value="true" />
+      <created>1779404237903</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1779404237903</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update analytics module">
+      <option name="closed" value="true" />
+      <created>1779564560175</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1779564560175</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update requirements.txt">
+      <option name="closed" value="true" />
+      <created>1779723810281</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1779723810281</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update static files + board.js">
+      <option name="closed" value="true" />
+      <created>1779724861580</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1779724861580</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Add .gitignore" />
+    <MESSAGE value="Add projects structure + DB Models" />
+    <MESSAGE value="Add auth logic + add User model + edit another models to work with new User" />
+    <MESSAGE value="Add architecture app CRUD" />
+    <MESSAGE value="Add defects app bug life cycle logic" />
+    <MESSAGE value="Backend complete" />
+    <MESSAGE value="Deployment commit" />
+    <MESSAGE value="Add runtime.txt" />
+    <MESSAGE value="Update requirements.txt 3" />
+    <MESSAGE value="Update requirements.txt 4" />
+    <MESSAGE value="Front-end initial commit" />
+    <MESSAGE value="Front-end almost done (if is not yet)" />
+    <MESSAGE value="update analytics module" />
+    <MESSAGE value="Update requirements.txt" />
+    <MESSAGE value="Update static files + board.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update static files + board.js" />
   </component>
 </project>
